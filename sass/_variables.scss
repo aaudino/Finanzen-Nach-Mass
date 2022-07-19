@@ -1,0 +1,56 @@
+$border: 2px solid #edeeee;
+$shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+$bradius: 12px;
+$h1-font-size: 4.6rem;
+$text-font-size: 1.8rem;
+
+// #########################
+//  FONTS & COLORS
+//##########################
+
+$color-text: #495057;
+$color-text-light: #fff;
+$color-main: #4263eb;
+$color-main--hover: #5c7cfa;
+$color-main-dark: #1045be;
+$color-main-darkest: #0a2972;
+
+// #########################
+//  BACKGROUNDS & GRADIENTS
+//##########################
+// Plain Backgrounds
+$background-body: #f7f7f7;
+$background-white: #fff;
+
+$background-gradient-full-op: linear-gradient(
+  to right bottom,
+  rgba(16, 69, 190),
+  rgba(10, 41, 114)
+);
+
+// Gradient Backgrounds
+$background-gradient: linear-gradient(
+  to right bottom,
+  rgba(16, 69, 190, 0.8),
+  rgba(10, 41, 114, 0.8)
+);
+
+$background-gradient-radial: radial-gradient(
+  rgba(16, 69, 190),
+  rgba(10, 41, 114)
+);
+$background-gradient-low-op: linear-gradient(
+  to right bottom,
+  rgba(16, 69, 190, 0.3),
+  rgba(10, 41, 114, 0.3)
+);
+
+// #########################
+//  BREAKPOINTS
+//##########################
+$bp-largest: 121.25em; //1940:16
+$bp-larger: 60em; //1440:16
+$bp-large: 75em; //1200px:16
+$bp-medium: 50em; //800px:16
+$bp-small: 31.25em; //500px:16
+$bp-smallest: 21.88em; //350px:16

@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%; // equal to 8 px
+  }
+  @media only screen and (max-width: $bp-smallest) {
+    font-size: 40%; // equal to  6.4 px
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  line-height: 1.6;
+  color: $color-text;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 1.6rem;
+  background: $background-body;
+}
+
+header {
+  background-color: $background-white;
+}
+section {
+  margin-bottom: 7.2rem;
+}
+
+

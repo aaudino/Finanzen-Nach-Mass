@@ -1,0 +1,131 @@
+.reviews {
+  background-image: $background-gradient, url("/img/conversation.webp");
+  background-size: cover;
+  background-position: center;
+  // transform: skewY(-3deg) translateY(0);
+ 
+  transition: all 2s;
+
+  &__area {
+    display: grid;
+    grid-template-columns: 0.5fr[area-start]auto[area-end]0.5fr;
+    min-height: 95rem;
+    max-height: max-content;
+  }
+  &__grid {
+    display: grid;
+    height: 100%;
+    grid-column: area-start / area-end;
+    grid-template-columns: repeat(3, minmax(25rem, 30rem));
+    grid-template-rows: repeat(auto-fit, minmax(25rem, min-content));
+    grid-column-gap: 3.6rem;
+    grid-row-gap: 4.8rem;
+    align-items: flex-start;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-template-columns: repeat(2, minmax(25rem, 30rem));
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: repeat(1, minmax(25rem, 30rem));
+    }
+  }
+}
+
+.reviewCard {
+  // Every card needs to have the Min-content height so that it does not grow with the active card
+  height: 25rem;
+  padding: 4rem 1rem 1rem 1rem;
+  border-radius: 1.5rem;
+  position: relative;
+  background-color: rgba(136, 162, 223, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: $color-text-light;
+  transition: all 0.4s;
+
+  &--active {
+    // Lets the Reviewcard grow to fit the full review
+    height: min-content !important;
+    
+   
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    color: $color-main;
+    background-color: $background-white;
+    z-index: 2;
+  }
+
+  &__profile {
+    height: 6rem;
+    width: 6rem;
+    border: 5px solid;
+    border-color: $color-text;
+    border-radius: 50%;
+    display: flex;
+    background-color: #f2f2f2;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &--text {
+      display: inline-block;
+      font-size: 2.4rem;
+      font-weight: 500;
+      color: $color-text;
+    }
+  }
+
+  &__review {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.6rem;
+    
+
+    &--ftHidden {
+      color: transparent;
+      pointer-events: none;
+      user-select: none;
+      font-size: 0.5rem;
+      
+      
+    }
+
+    &--ftActive {
+      color: transparent;
+      font-size: 1.6rem;
+     
+      margin-bottom: 2.4rem;
+      transition: all 0.2s;
+
+    }
+  }
+
+  &__icon,
+  &__icon--rotated {
+    width: 100%;
+    cursor: pointer;
+    font-size: 3.2rem;
+    margin-top: 1.2rem;
+    margin-bottom: 2.4rem;
+    font-size: 3.2rem;
+  }
+
+  &__icon--rotated {
+    transform: rotate(180deg);
+  }
+
+  &__icon:hover {
+    animation: arrowAnimationDown 1s infinite alternate ease-in;
+  }
+
+  &__icon--rotated:hover {
+    animation: arrowAnimationUp 1s infinite alternate ease-in;
+  }
+}

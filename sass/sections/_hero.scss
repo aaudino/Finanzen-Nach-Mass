@@ -1,0 +1,66 @@
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-image: $background-gradient, url("/img/upchart.webp");
+  &__heading,
+  &__subheading {
+    color: $color-text-light;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__heading {
+    font-weight: 700;
+    font-size: 10rem;
+    font-family: "Cinzel", serif;
+    animation-name: moveInLeft;
+    @media only screen and (max-width: $bp-small) {
+      font-size: 8rem;
+    }
+  }
+  &__subheading {
+    font-weight: 600;
+    font-size: 2.8rem;
+    letter-spacing: 0.8rem;
+    margin: 3.2rem 0 8.2rem 0;
+    animation-name: moveInRight;
+  }
+  &__btn {
+    font-size: 2.2rem;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 10rem;
+    padding: 1.5rem 4rem;
+    text-align: center;
+    color: $color-text-light;
+    font-weight: 700;
+    background-color: $color-main;
+    transition: all 0.4s;
+    cursor: pointer;
+
+    &:link,
+    &:visited {
+      animation: moveInBottom 1s ease-out 0.75s;
+      // Button hasa an initial state and switches to the one that is specified at 0% in the Animation - This property makes sure that the button ignores his initial state and switches immediately to the one that is specified in the animation
+      animation-fill-mode: backwards;
+    }
+
+    &:hover {
+      background-color: $color-main--hover;
+      box-shadow: $shadow;
+      transform: translateY(-3px);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+}

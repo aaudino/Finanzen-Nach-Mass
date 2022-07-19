@@ -1,0 +1,70 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 2s;
+
+  &__container {
+    display: grid;
+    grid-row-gap: 2rem;
+    border: $border;
+    box-shadow: $shadow;
+    border-radius: $bradius;
+    grid-template-columns: 1fr minmax(30rem, 60rem) minmax(20rem, 40rem) 1fr;
+    grid-template-rows: repeat(4, min-content);
+    overflow: hidden;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-template-columns: 1fr minmax(30rem, 60rem) 1fr;
+      grid-template-rows: 35rem repeat(4, min-content);
+    }
+
+    &--heading {
+      grid-column: 2;
+      padding: 3rem 0 0 3rem;
+      color: $color-main;
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+    
+      @media only screen and (max-width: $bp-medium) {
+        grid-row: 3;
+      }
+    }
+
+    &--text {
+      grid-column: 2;
+      grid-row: 2;
+      padding: 1.2rem 3rem 2.4rem 3rem;
+      @media only screen and (max-width: $bp-medium) {
+        grid-row: 4;
+      }
+    }
+
+    &--icon {
+      grid-column: 2;
+      grid-row: 3;
+      @media only screen and (max-width: $bp-medium) {
+        grid-row: 5;
+      }
+    }
+
+    &--imgBox {
+      grid-column: 3;
+      grid-row: 1 / -1;
+      background-size: cover;
+      background-image: $background-gradient-low-op,
+        url("../img/Frank-Sautter.webp");
+      background-position: center;
+      transition: all 0.7s;
+      &:hover {
+        transform: scale(1.1);
+        overflow: hidden;
+      }
+      @media only screen and (max-width: $bp-medium) {
+        grid-row: 1;
+        grid-column: 2;
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+footer {
+  background-color: $background-white;
+
+  height: 35rem;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+.footerContainer {
+  height: 100%;
+
+  display: grid;
+  // grid-template-columns: repeat(5, max-content);
+  // grid-template-rows: repeat(5, 5vh);
+  grid-template-columns: repeat(5, 6rem);
+  grid-template-rows: repeat(5, 6rem);
+  grid-column-gap: 2.4rem;
+  align-items: end;
+  justify-content: center;
+
+  &__logo {
+    display: inline-block;
+    grid-row: 1 / 3;
+    grid-column: 1 / -1;
+    max-height: 75%;
+    max-width: 100%;
+  }
+
+  ion-icon {
+    grid-row: 3;
+    justify-self: center;
+  }
+  a {
+    grid-row: 4;
+    grid-column: 1 /-1;
+    justify-self: center;
+  }
+
+  &__copyright {
+    grid-row: 5;
+    grid-column: 1 /-1;
+    display: flex;
+    justify-content: center;
+  }
+}

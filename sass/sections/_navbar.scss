@@ -1,0 +1,112 @@
+.navbar {
+  // Navbar has 100% of its parent Element = header
+  height: 100%;
+
+  display: flex;
+  //align the items in vertical center
+  align-items: center;
+  // distribute the items to the endsof the navbar
+  justify-content: space-between;
+  &__logo {
+    // height: 8vh;
+    height: 10rem;
+    margin-left: 3.2rem;
+  }
+  &__menu {
+    &--background,
+    &--button {
+      height: 6rem;
+      width: 6rem;
+      border-radius: 50%;
+      position: fixed;
+      right: 4rem;
+    }
+    &--background {
+      z-index: 1000;
+      background-image: $background-gradient-radial;
+      transform: scale(0);
+      transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+      // Background has different positioning values because it can not be
+      top: 1.5rem;
+    }
+    &--button {
+      z-index: 2000;
+      cursor: pointer;
+      color: $color-main-dark;
+      box-shadow: $shadow;
+      font-size: 5rem;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color-text-light;
+      top: 4rem;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.navigation {
+  // navigation is supposed to cover the entire screen
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  // takes the navigation out of the flow and therefore abolsute to the body
+  position: fixed;
+  opacity: 0;
+  // Hide the elements on the far on the end of the page
+  width: 0;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  &__list {
+    position: absolute;
+    // place the list in the center of the Page
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    list-style: none;
+    z-index: 4000;
+
+    &--span {
+      margin-right: 3rem;
+    }
+
+    &--link {
+      font-size: 3rem;
+      color: $color-text-light;
+      text-decoration: none;
+      text-transform: uppercase;
+      // TODO: was hast du bei dem Code eigentlich gemacht ? ^^
+      &:link,
+      &:visited {
+        display: inline-block;
+        margin: 1rem;
+        padding: 1rem 2rem;
+        background-image: linear-gradient(
+          120deg,
+          transparent 0%,
+          transparent 50%,
+          white 50%
+        );
+        /* background size auf 200% lässt das element verschwinden */
+        background-size: 240%;
+        transition: all 0.4s;
+      }
+      &:hover,
+      &:active {
+        background-position: 100%;
+        color: $color-main-darkest;
+        transform: translateX(1rem);
+      }
+    }
+  }
+}
+
+// This makes sure that the links can not be clicked if they are hidden on the left hand side
+.disable {
+  pointer-events: none;
+  cursor: default;
+  user-select: none;
+}

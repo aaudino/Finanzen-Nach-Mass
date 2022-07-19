@@ -1,0 +1,207 @@
+// the Section spans across the entire Page
+.services {
+  background-image: $background-gradient;
+  // transform: skewY(-3deg);
+  transition:all 2s;
+  
+  &__area {
+    // transform: skewY(3deg);
+    display: grid;
+    grid-template-columns: 1fr[area-start]auto[area-end]1fr;
+    min-height: 52rem;
+   
+  }
+
+  &__grid {
+    display: grid;
+    height: 100%;
+    grid-column: area-start / area-end;
+    // grid-template-columns: repeat(5, minmax(25rem, 35rem));
+    grid-template-columns: repeat(3, minmax(30rem, 35rem));
+    grid-template-rows: repeat(2, min-content);
+    grid-column-gap: 2.4rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-template-columns: repeat(2, minmax(30rem, 35rem));
+    }
+
+    grid-column-gap: 2.4rem;
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: repeat(1, minmax(30rem, 35rem));
+    }
+  }
+}
+
+.serviceCard {
+  // The service Card must be relative in order to hide the back part of the card behind the front part
+  position: relative;
+
+  &__side {
+    height: 90%;
+    backface-visibility: hidden;
+    perspective: 150rem;
+    transition: all 1s;
+  }
+
+  &__side--rotated {
+    transform: rotateY(180deg);
+  }
+
+  &:nth-child(4) {
+    grid-column: 1;
+    transform: translateX(53%);
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: auto;
+      transform: translateX(0%);
+    }
+  }
+
+  &:nth-child(5) {
+    grid-column: 3;
+    transform: translateX(-53%);
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: auto;
+      transform: translateX(50%);
+    }
+    @media only screen and (max-width: $bp-small) {
+      transform: translateX(0%);
+    }
+  }
+
+
+  //##########################
+  //      HOVER EFFECTS
+  //##########################
+  // &:hover &__side {
+  //   transform: rotateY(180deg);
+  // }
+
+  // &:hover &__front {
+  //   transform: rotateY(180deg);
+  // }
+
+  // &:hover &__back {
+  //   transform: rotateY(360deg);
+  // }
+
+
+  // Both cards are supposed to look the same
+  &__back,
+  &__front {
+    border-radius: 1.5rem;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    transition: all 1s;
+    background-color: $background-white;
+    overflow: hidden;
+  }
+
+  &__back--rotated {
+    transform: rotateY(360deg) !important;
+  }
+
+  &__front--rotated {
+    transform: rotateY(180deg);
+  }
+
+  &__btn {
+    margin-right: 0.5vw;
+    margin-bottom: 2.4rem;
+    border-radius: 10rem;
+    padding: 2% 2%;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    background-color: $color-main;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 2;
+
+    &:hover .btn__ring {
+      animation: ring 1.5s infinite;
+    }
+  }
+
+  &__front {
+    &__image {
+      background-size: cover;
+      height: 24rem;
+      width: 100%;
+      // Needs to be relatively positioned because the number and text are positioned in the relation to the image part of the card
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      background-blend-mode: color;
+
+      &--number {
+        font-size: 15rem;
+        color: transparent;
+        -webkit-text-stroke: 2px $color-text-light;
+        position: absolute;
+        top: 5%;
+        left: 0%;
+      }
+      &--text {
+        position: absolute;
+        top: 60%;
+        left: 27%;
+        color: $color-text-light;
+        font-size: 1.6rem;
+        border-radius: 2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        background-image: $background-gradient-full-op;
+        padding: 0.7rem;
+      }
+    }
+    &__text {
+      padding: 2.4rem 1rem;
+    }
+  }
+
+  // Back Part is supposed to provide information to the customer
+  &__back {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: rotateY(180deg);
+    box-sizing: border-box;
+    padding: 2.4rem;
+    &__heading {
+      color: $color-main;
+      text-transform: uppercase;
+    }
+    &__text {
+      margin: 2.4rem 0 4.8rem 0;
+    }
+  }
+}
+
+.image {
+  &--1 {
+    background-image: $background-gradient-full-op,
+      url("../img/kennenlerngespräch.webp");
+  }
+
+  &--2 {
+    background-image: $background-gradient-full-op,
+      url("../img/presentation.webp");
+  }
+
+  &--3 {
+    background-image: $background-gradient-full-op, url("../img/analysis.webp");
+  }
+
+  &--4 {
+    background-image: $background-gradient-full-op,
+      url("../img/vorstellung.webp");
+  }
+  &--5 {
+    background-image: $background-gradient-full-op, url("../img/umsetzung.webp");
+  }
+}
